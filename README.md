@@ -7,7 +7,7 @@ This is a 2048 game projecgt built with native JavaScript.
 You can find demo of this game <a href="https://Tetiana-Hishchak.github.io/Game_2048/" target="_blank"> here </a>
 
 
-# Metodolgies and Technologies Used
+# Technologies Used
 
 -	JavaScript: The project utilizes JavaScript for dynamic and interactive functionality, such as handling user interactions and manipulating the DOM.
 -	HTML and CSS: The structure and styling of the game are done with HTML and CSS.

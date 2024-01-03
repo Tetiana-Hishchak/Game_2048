@@ -51,6 +51,9 @@ function restart() {
   score = 0;
 
   gameScore.innerText = 0;
+  messageStart.classList.add('hidden');
+  messageLose.classList.add('hidden');
+  messageWin.classList.add('hidden');
 }
 
 document.addEventListener('keydown', (e) => {
@@ -84,15 +87,11 @@ document.addEventListener('keydown', (e) => {
 
   gameScore.innerText = score;
 
-  if (score === 2048) {
-    messageWin.classList.remove('hidden');
-    start.classList.replace('restart', 'start');
-    start.innerText = 'Start';
-  }
-
   if (gameOver()) {
     messageLose.classList.remove('hidden');
   }
+
+  gameWin();
 });
 
 let index = 0;
@@ -106,17 +105,17 @@ for (let r = 0; r < board.length; r++) {
 let score = 0;
 
 function slide(row) {
-  row.filter(num => num !== 0);
+  const filterRow = row.filter(num => num !== 0);
 
-  for (let i = 0; i < row.length - 1; i++) {
-    if (row[i] === row[i + 1]) {
-      row[i] *= 2;
-      row[i + 1] = 0;
-      score += row[i];
+  for (let i = 0; i < filterRow.length - 1; i++) {
+    if (filterRow[i] === filterRow[i + 1]) {
+      filterRow[i] *= 2;
+      filterRow[i + 1] = 0;
+      score += filterRow[i];
     }
   }
 
-  const rowNew = row.filter(num => num !== 0);
+  const rowNew = filterRow.filter(num => num !== 0);
 
   while (rowNew.length < board.length) {
     rowNew.push(0);
@@ -224,7 +223,7 @@ function setNewNumber() {
   let found = false;
 
   while (!found) {
-    const value = Math.random() > 0.1 ? 2 : 4;
+    const value = Math.random() > 0.1 ? 4 : 2;
     const r = Math.floor(Math.random() * board.length);
     const c = Math.floor(Math.random() * board.length);
 
@@ -285,4 +284,13 @@ function gameOver() {
   }
 
   return true;
+}
+
+function gameWin() {
+  const winCell = Array.from(fieldCell)
+    .some(cell => cell.textContent === '2048');
+
+  if (winCell) {
+    messageWin.classList.remove('hidden');
+  }
 }
