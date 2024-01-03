@@ -3,8 +3,8 @@ This is a 2048 game projecgt built with native JavaScript.
 2048 is an easy and fun puzzle game. Even if you don't love numbers you will love this game. It is played on a 4x4 grid using the arrows. Every time you press a key - all tiles slide. Tiles with the same value that bump into one-another are merged. Although there might be an optimal strategy to play, there is always some level of chance.The game's objective is to slide numbered tiles on a grid to combine them to create a tile with the number 2048.
 
 
-# DEMO link
-You can find demo of this game [here](https://Tetiana-Hishchak.github.io/Game_2048/)
+# DEMO
+You can find demo of this game <a href="https://Tetiana-Hishchak.github.io/Game_2048/" target="_blank"> here </a>
 
 
 # Metodolgies and Technologies Used

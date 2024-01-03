@@ -30,13 +30,9 @@ start.addEventListener('click', () => {
     setNewNumber();
     setNewNumber();
   } else if (start.classList.contains('restart')) {
-    start.classList.remove('restart');
-    start.classList.add('start');
-    start.textContent = 'Start';
-    messageStart.classList.remove('hidden');
-    messageLose.classList.add('hidden');
-    messageWin.classList.add('hidden');
     restart();
+    setNewNumber();
+    setNewNumber();
   }
 });
 
@@ -57,7 +53,7 @@ function restart() {
   gameScore.innerText = 0;
 }
 
-document.addEventListener('keyup', (e) => {
+document.addEventListener('keydown', (e) => {
   if (start.classList.contains('start')) {
     return;
   }
